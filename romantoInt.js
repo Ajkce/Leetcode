@@ -12,17 +12,19 @@ const romanToInt = function (s) {
   const roman = s.split("");
   const arr = roman.map((item) => {
     const num = values.find((items) => items.item === item);
-    return num.value;
+   
+    return num
   });
+  const newarr = arr.map(items => items.value)
   let total = 0;
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] < arr[i + 1]) {
-      total = total - arr[i];
+  for (var i = 0; i < newarr.length; i++) {
+    if (newarr[i] < newarr[i + 1]) {
+      total = total - newarr[i];
     } else {
-      total = total + arr[i];
+      total = total + newarr[i];
     }
   }
   return total;
 };
 
-console.log(romanToInt("X"));
+console.log(romanToInt("IV"));
